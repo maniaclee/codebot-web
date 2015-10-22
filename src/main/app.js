@@ -2,8 +2,8 @@ var express = require('express');
 var app = express(); 
 
 app.set('view engine', 'jade');
-app.set('views', './templates')
-app.use(express.static('./'));
+app.set('views', './resources/templates')
+app.use(express.static('./resources'));
 app.engine('html', require('ejs').renderFile);
 
 app.get('/hello.txt', function(req, res){  
