@@ -8,10 +8,10 @@ import org.springframework.web.servlet.ModelAndView;
 /**
  * Created by lipeng on 15/10/4.
  */
-@Controller
+@Controller("/")
 public class PageController {
 
-    @RequestMapping(value = {"/", "/index"})
+    @RequestMapping(value = {"", "index"})
     public ModelAndView index() {
         return new ModelAndView("index-worthy");
 //        return new ModelAndView("index");

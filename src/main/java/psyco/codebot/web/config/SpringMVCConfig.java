@@ -11,19 +11,8 @@ public class SpringMVCConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        addResource(registry, "css");
-        addResource(registry, "js");
-        addResource(registry, "img");
-        addResource(registry, "lib");
-
-
-        addResource(registry, "worthy");
+        registry.addResourceHandler("/static/**").addResourceLocations("classpath:static/").setCachePeriod(31556926);
     }
-
-    void addResource(ResourceHandlerRegistry registry, String prefix) {
-        registry.addResourceHandler("/static/@/**".replace("@", prefix)).addResourceLocations("classpath:static/@/".replace("@", prefix)).setCachePeriod(31556926);
-    }
-
 
     @Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
