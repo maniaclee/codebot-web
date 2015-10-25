@@ -13,7 +13,8 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @SpringBootApplication
 @EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class, HibernateJpaAutoConfiguration.class})
-@ComponentScan(basePackages = {"psyco.codebot.web"})
+//@ComponentScan(basePackages = {"psyco.codebot.web"})
+@ComponentScan(basePackages = {"psyco.codebot.web.conifg","psyco.codebot.web.controller"})
 public class WebMain {
 
     public static void main(String[] args) throws Exception {
