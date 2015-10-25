@@ -5,12 +5,15 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.annotation.security.RolesAllowed;
+
 /**
  * Created by lipeng on 15/10/4.
  */
 @Controller("/")
 public class PageController {
 
+    @RolesAllowed(value = {"USER"})
     @RequestMapping(value = {"", "index"})
     public ModelAndView index() {
         return new ModelAndView("index-worthy");

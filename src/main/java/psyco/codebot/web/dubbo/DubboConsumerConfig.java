@@ -18,8 +18,8 @@ import psyco.user.center.client.service.UserService;
 @Configuration
 public class DubboConsumerConfig extends DubboConfig {
 
-    @Value("${dubbo.port}")
-    private Integer port;
+//    @Value("${dubbo.port}")
+//    private Integer port;
 
     @Value("${dubbo.timeout}")
     private int timeout;
