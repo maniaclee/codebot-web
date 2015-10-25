@@ -17,6 +17,11 @@ public class PageController {
 //        return new ModelAndView("index");
     }
 
+    @RequestMapping(value = { "login"})
+    public ModelAndView login() {
+        return new ModelAndView("login");
+    }
+
 
     @ExceptionHandler(Exception.class)
     public ModelAndView handleCustomException(Exception ex) {
