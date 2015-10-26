@@ -1,8 +1,8 @@
 package psyco.codebot.web.controller;
 
-import org.apache.ibatis.annotations.Param;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import psyco.codebot.web.core.Consts;
 import psyco.codebot.web.core.WebResponse;
@@ -16,9 +16,8 @@ import java.util.Objects;
 @RestController("/api/")
 public class RestApiController {
 
-
     @RequestMapping(value = "login", method = RequestMethod.POST)
-    public WebResponse login(HttpServletRequest req, @Param("name") String name, @Param("password") String password) {
+    public WebResponse login(HttpServletRequest req, @RequestParam("name") String name, @RequestParam("password") String password) {
         if (Objects.equals(name, "root") && Objects.equals(password, "fuck")) {
             req.getSession().setAttribute(Consts.SESSION_USER, "");
             return WebResponse.success("/index");
