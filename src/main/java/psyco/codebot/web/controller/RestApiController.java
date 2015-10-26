@@ -14,10 +14,19 @@ import java.util.Objects;
  * Created by peng on 15/10/25.
  */
 @RestController
+@RequestMapping("/api")
 public class RestApiController {
 
-    @RequestMapping(value = "/api/login", method = RequestMethod.POST)
+    @RequestMapping(value = "login", method = RequestMethod.POST)
     public WebResponse login(HttpServletRequest req, @RequestParam("name") String name, @RequestParam("password") String password) {
+        if (Objects.equals(name, "root") && Objects.equals(password, "fuck")) {
+            req.getSession().setAttribute(Consts.SESSION_USER, "");
+            return WebResponse.success("/index");
+        }
+        return WebResponse.error("Incorrect username or password");
+    }
+    @RequestMapping(value = "signup", method = RequestMethod.POST)
+    public WebResponse signup(HttpServletRequest req, @RequestParam("name") String name, @RequestParam("password") String password) {
         if (Objects.equals(name, "root") && Objects.equals(password, "fuck")) {
             req.getSession().setAttribute(Consts.SESSION_USER, "");
             return WebResponse.success("/index");

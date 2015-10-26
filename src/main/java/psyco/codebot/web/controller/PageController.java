@@ -23,6 +23,10 @@ public class PageController {
     public ModelAndView login() {
         return new ModelAndView("login");
     }
+    @RequestMapping(value = {"signup"})
+    public ModelAndView signup() {
+        return new ModelAndView("signup");
+    }
 
 
     @ExceptionHandler(Exception.class)
