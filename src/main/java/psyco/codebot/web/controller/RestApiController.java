@@ -13,10 +13,10 @@ import java.util.Objects;
 /**
  * Created by peng on 15/10/25.
  */
-@RestController("/api/")
+@RestController
 public class RestApiController {
 
-    @RequestMapping(value = "login", method = RequestMethod.POST)
+    @RequestMapping(value = "/api/login", method = RequestMethod.POST)
     public WebResponse login(HttpServletRequest req, @RequestParam("name") String name, @RequestParam("password") String password) {
         if (Objects.equals(name, "root") && Objects.equals(password, "fuck")) {
             req.getSession().setAttribute(Consts.SESSION_USER, "");

@@ -7,7 +7,7 @@ import java.io.Serializable;
  */
 public class WebResponse implements Serializable {
 
-    private boolean isSuccess = true;
+    private boolean success = true;
     private Object data;
     private String errorMessage;
 
@@ -19,18 +19,17 @@ public class WebResponse implements Serializable {
 
     public static WebResponse error(String message) {
         WebResponse re = new WebResponse();
-        re.setIsSuccess(false);
+        re.setSuccess(false);
         re.setErrorMessage(message);
         return re;
     }
 
-
     public boolean isSuccess() {
-        return isSuccess;
+        return success;
     }
 
-    public void setIsSuccess(boolean isSuccess) {
-        this.isSuccess = isSuccess;
+    public void setSuccess(boolean success) {
+        this.success = success;
     }
 
     public Object getData() {
